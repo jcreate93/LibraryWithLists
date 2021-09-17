@@ -1,6 +1,6 @@
 In this project, we will build a screen for a library software app utilizing Lists.
 
-Your objective is to build a GUI app (using Java swing for example) to show Library Book information details as read from a file. 
+Your objective is to build a GUI app (using Java swing for example) to show Library Book information details as read from a file. ---julie
 
 1- First download the book.csv file from here 
 
@@ -8,17 +8,17 @@ https://github.com/zygmuntz/goodbooks-10k/blob/master/samples/books.csv (Links t
 
 https://github.com/zygmuntz/goodbooks-10k/blob/master/books.csv (Links to an external site.)
 
-2- Your program should include a class Book that contains data reflecting the columns in the dataset table
+---julie  2- Your program should include a class Book that contains data reflecting the columns in the dataset table  
 
-3- Using regular expressions and the string library, build a function to read the file record by record and stores them into a List of Book objects.
+---julie 3- Using regular expressions and the string library, build a function to read the file record by record and stores them into a List of Book objects. 
 
 4-  Implement two versions of this program one that uses ArrayLists and one that uses LinkedLists. You should be able to do that without duplicating all the code. (hint: review Task 1 of Assignment 2)
 
-5- Your app should show the top 10 records in your list. 
+--- Eduwem Your app should show the top 10 records in your list. 
 
-6- Your app should allow the user to search for a certain book using book_id or isbn
+--- Eduwem  6- Your app should allow the user to search for a certain book using book_id or isbn 
 
-7- Your app should allow the user to change the sorting of the list to be sorted based on 
+--juliue, eduwem 7- Your app should allow the user to change the sorting of the list to be sorted based on 
 
   a) authors 
 
@@ -34,16 +34,16 @@ Note: feel free to trim the file ( use a shorter list of books) but we have to m
 
 for the ArrayList 
 
-a) Binary search 
+eduwem - a) Binary search 
 
 for the LinkedList 
 
-b) linear search 
+julie  b) linear search 
 
-9) create a separate method to test the performance of the algorithms in 8.
+eduwem 9) create a separate method to test the performance of the algorithms in 8.
 
 Compare the performance of the 2 methods by searching in the underling data structure for a large number of values. These values could be taken from the data set. (suggested number 500 values, if no difference is seen they could be increased to a 1000)
 
-10) Report the running time for each of the two methods.  
+eduwem 10) Report the running time for each of the two methods.  
 
-11) Any added features like: adding a new book, editing book information, deleting books, or more features for search will be rewarded with a bonus! 
+julie, eduwem 11) Any added features like: adding a new book, editing book information, deleting books, or more features for search will be rewarded with a bonus! 
