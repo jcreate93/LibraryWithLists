@@ -21,8 +21,8 @@ public class Book {
 				try {
 					while(line != null) {                   //reads each row
 						listOfLines.add(line);
-					      //line = br.readLine();
-						String[] count = line.split(",");                     //splits each column by commas
+					      line = br.readLine();
+						//String[] count = line.split(",");                     //splits each column by commas
 						System.out.println(line);
 					}
 				}

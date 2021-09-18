@@ -1,39 +1,36 @@
-import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
+//trial
 
 public class GraphicsFrame extends JFrame implements ActionListener{
 
+
+		
 		JFrame frame;
-		private JTextField textFieldBookID;
-		private JTextField textFieldISBN;
+		JTextField textFieldBookID;
+		JTextField textFieldISBN;
+		JButton azAsc;
+		JButton zaDesc;
+		JLabel LabelSearchBy;
 		
 		
 		
 	GraphicsFrame(){
 		
-		
-		frame = new JFrame("Book Library");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(420, 420);
-		
 	//A to Z button
-		JButton azAsc = new JButton("A to Z");
-		frame.add(azAsc);
+		azAsc = new JButton("A to Z");
 		
 	
 	//Z to A button
-		JButton zaDesc = new JButton("Z to A");
+		zaDesc = new JButton("Z to A");
 		
 	// BookID textField
 		textFieldBookID = new JTextField();
@@ -42,7 +39,7 @@ public class GraphicsFrame extends JFrame implements ActionListener{
 	
 		
 	//Main Labels
-		JLabel LabelSearchBy = new JLabel("Search by:");
+		LabelSearchBy = new JLabel("Search by:");
 		JLabel LabelSortBy = new JLabel("Sort by:");
 		
 		
@@ -51,10 +48,10 @@ public class GraphicsFrame extends JFrame implements ActionListener{
 		textFieldISBN = new JTextField();
 		textFieldISBN.setColumns(10);
 		
+		
 	//Author button
 		JButton ButtonAuthor = new JButton("Author");
-	
-	//Year button
+		
 		JButton ButtonYear = new JButton("Year");
 		
 		
@@ -117,8 +114,11 @@ public class GraphicsFrame extends JFrame implements ActionListener{
 					.addContainerGap(47, Short.MAX_VALUE))
 		);
 		getContentPane().setLayout(groupLayout_1);
+		frame = new JFrame("Book Library");
 		
 		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(420, 420);
 		
 		
 	//GroupLayout
@@ -148,7 +148,10 @@ public class GraphicsFrame extends JFrame implements ActionListener{
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
+			
 			
 		}
+
+
+
 }
