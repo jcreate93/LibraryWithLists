@@ -1,26 +1,30 @@
+
 import java.io.IOException;
-		import java.io.FileReader;
-		import java.io.File;
-		import java.io.FileNotFoundException;
-		import java.io.BufferedReader;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 		
 public class Book {
 
 	public static void main(String[] args) throws IOException {
 	
-				File csvFile = new File("C:\\Users\\limit\\git\\LibraryDesktopAppLists\\books.csv");
+		GraphicsFrame gframe = new GraphicsFrame();    
+		
+				File csvFile = new File("D:\\eclipseWorkspaces\\SENG102Java\\Library\\books.csv");
 				BufferedReader br = new BufferedReader(new FileReader(csvFile));
+				ArrayList<String> listOfLines = new ArrayList<>();
 				
-				String line = "";
+				String line = br.readLine();
 				
 				try {
-					while((line = br.readLine()) != null) {                   //reads each row
+					while(line != null) {                   //reads each row
+						listOfLines.add(line);
+					      //line = br.readLine();
 						String[] count = line.split(",");                     //splits each column by commas
-						System.out.println(count[0] + " " + count[1] + " " + count[2] + " " + count[3]);
+						System.out.println(line);
 					}
-				}
-				catch(FileNotFoundException e){
-					e.printStackTrace();
 				}
 				finally {//something
 					
