@@ -1,4 +1,4 @@
-In this project, we will build a screen for a library software app utilizing Lists.
+In this project, we will build a screen for a library software app utilizing Lists.edited
 
 Your objective is to build a GUI app (using Java swing for example) to show Library Book information details as read from a file. ---julie
 
