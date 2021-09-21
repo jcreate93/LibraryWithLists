@@ -24,7 +24,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		 
-		List<Book> books = readBooksFromCSV("D:\\eclipseWorkspaces\\SENG102Java\\Library\\shortBook.csv");
+		List<Book> books = readBooksFromCSV("C:\\Users\\Owner\\git\\LibraryWithLists\\shortBook.csv");  //("src\\shortBook.csv");
 		GraphicsFrame gframe = new GraphicsFrame(books);  
 		
         // let's print all the person read from CSV file
@@ -56,7 +56,10 @@ public class Main {
               
              
 fullBook.bookID = columns[0];
+fullBook.isbn = columns[5];
 fullBook.author = columns[7];
+fullBook.title = columns[10];
+
 		System.out.println(fullBook);
                 // adding book into ArrayList
                 arrayBooks.add(fullBook);
