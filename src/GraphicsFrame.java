@@ -20,7 +20,7 @@ import javax.swing.JScrollPane;
 public class GraphicsFrame implements ActionListener {
 
 	public JTextField textFieldBookID;
-	private JTextField textField;
+	public JTextField textFieldIsbn;
 	private JButton btnSearch;
 
 	GraphicsFrame(List<Book> books) {
@@ -41,8 +41,8 @@ public class GraphicsFrame implements ActionListener {
 
 		JLabel LabelIsbn = new JLabel("ISBN:");
 
-		textField = new JTextField();
-		textField.setColumns(10);
+		textFieldIsbn = new JTextField();
+		textFieldIsbn.setColumns(10);
 
 		JButton ButtonAuthor = new JButton("Author");
 
@@ -62,6 +62,11 @@ public class GraphicsFrame implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				for (Book i : books) {
 					if (i.getBookID().equals(textFieldBookID.getText())) {
+						TextAreaPrint.setText(null);
+						TextAreaPrint.append("\n" + i.toString());
+						System.out.println(i);
+					}
+					if (i.getIsbn().equals(textFieldIsbn.getText())) {
 						TextAreaPrint.setText(null);
 						TextAreaPrint.append("\n" + i.toString());
 						System.out.println(i);
@@ -91,7 +96,7 @@ public class GraphicsFrame implements ActionListener {
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 												.addComponent(textFieldBookID, 54, 54, 54)
-												.addComponent(textField, 0, 0, Short.MAX_VALUE))))
+												.addComponent(textFieldIsbn, 0, 0, Short.MAX_VALUE))))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(ButtonYear)
@@ -117,7 +122,7 @@ public class GraphicsFrame implements ActionListener {
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(LabelIsbn)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(textFieldIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnSearch)
 							.addGap(21)
