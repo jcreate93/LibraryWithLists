@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Book {
 //add variables for every header
@@ -5,8 +8,20 @@ public class Book {
 	public String isbn;
 	public String author;
 	public String title;
+	public String originalPublicationYear;
+	List<Book> arrayBooks = new ArrayList<Book>();
 	
 	
+	public String getOriginalPublicationYear() {
+		return originalPublicationYear;
+	}
+
+
+	public void setOriginalPublicationYear(String originalPublicationYear) {
+		this.originalPublicationYear = originalPublicationYear;
+	}
+
+
 	public String getBookID() {
 		return bookID;
 	}
@@ -49,8 +64,11 @@ public class Book {
 
 	public String toString() {
 		
-		return bookID + "  " + isbn + "  " + author + "  " + title;
+		return bookID + "  " + isbn + "  " + author + "  " + originalPublicationYear + "  " + title;
 	}
+	
+	
+	
 	
 	/*Book(//takes in the attributes and creates objects//source - setters and getters){
 	

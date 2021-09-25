@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,7 +24,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<Book> books = readBooksFromCSV("C:\\Users\\Owner\\git\\LibraryWithLists\\shortBook.csv"); //("src\\shortBook.csv"); 
+		List<Book> books = readBooksFromCSV("C:\\Users\\Owner\\git\\LibraryWithLists\\shortBook.csv"); // ("src\\shortBook.csv");
 		GraphicsFrame gframe = new GraphicsFrame(books);
 
 		// let's print all the person read from CSV file
@@ -56,6 +57,7 @@ public class Main {
 				fullBook.bookID = columns[0];
 				fullBook.isbn = columns[5];
 				fullBook.author = columns[7];
+				fullBook.originalPublicationYear = columns[8];
 				fullBook.title = columns[10];
 
 				System.out.println(fullBook);
@@ -70,7 +72,7 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-//System.out.println(arrayBooks);
+		//System.out.println(arrayBooks);
 		return arrayBooks;
 	}
 

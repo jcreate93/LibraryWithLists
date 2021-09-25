@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ public class GraphicsFrame implements ActionListener {
 	public JTextField textFieldBookID;
 	public JTextField textFieldIsbn;
 	private JButton btnSearch;
+	List<Book> arrayBooks = new ArrayList<Book>();
 
 	GraphicsFrame(List<Book> books) {
 
@@ -43,10 +45,8 @@ public class GraphicsFrame implements ActionListener {
 
 		textFieldIsbn = new JTextField();
 		textFieldIsbn.setColumns(10);
-
-		JButton ButtonAuthor = new JButton("Author");
-
-		JButton ButtonYear = new JButton("Year");
+		
+		
 
 		JScrollPane scrollPane = new JScrollPane();
 
@@ -56,6 +56,34 @@ public class GraphicsFrame implements ActionListener {
 			TextAreaPrint.append("\n" + books.get(i).toString());
 
 		}
+
+		JButton ButtonYear = new JButton("Year");
+		ButtonYear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelectionSortArrayList.sortByPublicationYear(books);
+				TextAreaPrint.setText(null);
+				TextAreaPrint.append("\n" + books);
+			}
+		});
+		
+		
+		JButton ButtonAuthor = new JButton("Author");
+		ButtonAuthor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SelectionSortArrayList.sortByAuthor(books);
+				TextAreaPrint.setText(null);
+				TextAreaPrint.append("\n" + books);
+				//System.out.println(books);
+					
+			}
+
+			private void SelectionSortArrayList(List<Book> arrayBooks) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+
+		
 
 		btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
