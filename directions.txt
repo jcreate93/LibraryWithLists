@@ -10,15 +10,15 @@ https://github.com/zygmuntz/goodbooks-10k/blob/master/books.csv (Links to an ext
 
 ---DONE ---julie  2- Your program should include a class Book that contains data reflecting the columns in the dataset table  
 
----working -----julie 3- Using regular expressions and the string library, build a function to read the file record by record and stores them into a List of Book objects. 
+---DONE -----julie 3- Using regular expressions and the string library, build a function to read the file record by record and stores them into a List of Book objects. 
 
 ----DONE--4 Implement two versions of this program one that uses ArrayLists and one that uses LinkedLists. You should be able to do that without duplicating all the code. (hint: review Task 1 of Assignment 2)
 
 --- DONE----Eduwem Your app should show the top 10 records in your list.  -in textArea
 
---- Eduwem  6- Your app should allow the user to search for a certain book using book_id or isbn 
+---DONE---- Eduwem  6- Your app should allow the user to search for a certain book using book_id or isbn 
 
---julie, eduwem 7- Your app should allow the user to change the sorting of the list to be sorted based on 
+--DONE---julie, eduwem 7- Your app should allow the user to change the sorting of the list to be sorted based on 
 
   a) authors 
 

@@ -29,12 +29,12 @@ public class GraphicsFrame implements ActionListener {
 
 		JFrame frame = new JFrame();
 
-		JButton ButtonAZ = new JButton("A to Z");
+		
 		JButton ButtonZA = new JButton("Z to A");
 
 		JLabel LabelSearchBy = new JLabel("Search by:");
 		JLabel LabelSortBy = new JLabel("Sort by:");
-		JLabel LabelBookID = new JLabel("Book ID:");
+		JLabel LabelBookID = new JLabel("Book ID/Key:");
 		JTextArea textArea = new JTextArea();
 
 		textFieldBookID = new JTextField();
@@ -57,6 +57,15 @@ public class GraphicsFrame implements ActionListener {
 
 		}
 
+		JButton btnBookID = new JButton("Book ID");
+		btnBookID.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelectionSortArrayList.sortByBookID(books);
+				TextAreaPrint.setText(null);
+				TextAreaPrint.append("\n" + books);
+			}
+		});
+		
 		JButton ButtonYear = new JButton("Year");
 		ButtonYear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,6 +111,23 @@ public class GraphicsFrame implements ActionListener {
 				}
 			}
 		});
+		
+		JButton btnBinarySearch = new JButton("Binary Search");
+		btnBinarySearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				SelectionSortArrayList.sortByBookID(books);
+				int x = SelectionSortArrayList.BinarySearch(books, textFieldBookID.getText());
+				if (x != -1) {
+				TextAreaPrint.setText(null);
+				TextAreaPrint.append("\n" + books.get(x));
+				//System.out.println(books.get(x);
+				}
+				else {
+					TextAreaPrint.setText(null);
+					TextAreaPrint.append("Can't find book");
+				}
+			}
+		});
 
 //groups layout
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -114,27 +140,39 @@ public class GraphicsFrame implements ActionListener {
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(ButtonAZ, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-										.addComponent(ButtonAuthor)
-										.addComponent(btnSearch, Alignment.TRAILING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(LabelIsbn, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-												.addComponent(LabelBookID, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(textFieldBookID, 54, 54, 54)
-												.addComponent(textFieldIsbn, 0, 0, Short.MAX_VALUE))))
+										.addComponent(LabelBookID, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+										.addComponent(LabelSearchBy, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(ButtonYear)
-										.addComponent(ButtonZA))
-									.addGap(6))
-								.addComponent(LabelSortBy, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
-							.addGap(18)
-							.addComponent(TextAreaPrint, GroupLayout.PREFERRED_SIZE, 469, GroupLayout.PREFERRED_SIZE))
-						.addComponent(LabelSearchBy, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
+									.addComponent(textFieldBookID, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(LabelIsbn, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(textFieldIsbn, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)))
+							.addGap(751))
+						.addComponent(btnSearch)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(ButtonZA)
+							.addPreferredGap(ComponentPlacement.RELATED)))
+					.addGap(194))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(38)
+							.addComponent(btnBinarySearch))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(LabelSortBy, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(ButtonYear)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(ButtonAuthor))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnBookID, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)))
+					.addGap(74)
+					.addComponent(TextAreaPrint, GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+					.addGap(0))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -142,36 +180,37 @@ public class GraphicsFrame implements ActionListener {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(LabelSearchBy)
-							.addGap(18)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(LabelBookID)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(LabelSearchBy)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(LabelBookID))
 								.addComponent(textFieldBookID, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(btnBinarySearch)
+							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(LabelIsbn)
 								.addComponent(textFieldIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnSearch)
-							.addGap(21)
-							.addComponent(LabelSortBy)
-							.addGap(18)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(ButtonAZ)
-								.addComponent(ButtonZA))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(btnSearch)
+							.addGap(14)
+							.addComponent(LabelSortBy)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(ButtonAuthor)
-								.addComponent(ButtonYear)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(23)
-							.addComponent(TextAreaPrint, GroupLayout.PREFERRED_SIZE, 372, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(68, Short.MAX_VALUE))
+								.addComponent(ButtonYear)
+								.addComponent(ButtonAuthor))
+							.addGap(14)
+							.addComponent(btnBookID)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(ButtonZA))
+						.addComponent(TextAreaPrint, GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
+					.addGap(91))
 		);
 
 		frame.getContentPane().add(LabelSortBy);
 		frame.getContentPane().add(LabelSearchBy);
-		frame.getContentPane().add(ButtonAZ);
+		frame.getContentPane().add(btnBookID);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.getContentPane().add(TextAreaPrint);
 		frame.getContentPane().add(scrollPane);

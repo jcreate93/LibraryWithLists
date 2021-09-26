@@ -64,7 +64,7 @@ public class Book {
 
 	public String toString() {
 		
-		return bookID + "  " + isbn + "  " + author + "  " + originalPublicationYear + "  " + title;
+		return bookID + "  " + isbn + "  " + author + "  " + originalPublicationYear + "  " + title + "\n";
 	}
 	
 	
