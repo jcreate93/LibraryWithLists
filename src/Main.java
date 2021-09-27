@@ -23,7 +23,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		List<Book> books = readBooksFromCSV("C:\\Users\\Owner\\git\\LibraryWithLists\\shortBook.csv"); //("src\\shortBook.csv"); 
+		List<Book> books = readBooksFromCSV("src\\shortBook.csv"); //("src\\shortBook.csv"); //D:\\eclipseWorkspaces\\SENG102Java\\Library\\shortBook.csv
 		GraphicsFrame gframe = new GraphicsFrame(books);
 
 		// let's print all the person read from CSV file
