@@ -48,6 +48,8 @@ public class GraphicsFrame implements ActionListener {
 		JScrollPane scrollPane = new JScrollPane();
 
 		JTextArea TextAreaPrint = new JTextArea();
+		
+		scrollPane.getViewport().add(TextAreaPrint);
 
 		for (int i = 0; i < books.size() && i < 10; i++) {
 			TextAreaPrint.append("\n" + books.get(i).toString());

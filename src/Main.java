@@ -25,6 +25,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		List<Book> books = readBooksFromCSV("books.csv"); // ("src\\shortBook.csv");
+
 		GraphicsFrame gframe = new GraphicsFrame(books);
 
 		// let's print all the person read from CSV file
