@@ -34,16 +34,16 @@ Note: feel free to trim the file ( use a shorter list of books) but we have to m
 
 for the ArrayList 
 
-eduwem - a) Binary search 
+--DONE---eduwem - a) Binary search 
 
 for the LinkedList 
 
-----working on it---julie b) linear search 
+--DONE--working on it---julie b) linear search 
 
-eduwem 9) create a separate method to test the performance of the algorithms in 8.
+--DONE---eduwem 9) create a separate method to test the performance of the algorithms in 8.
 
 Compare the performance of the 2 methods by searching in the underling data structure for a large number of values. These values could be taken from the data set. (suggested number 500 values, if no difference is seen they could be increased to a 1000)
 
-eduwem 10) Report the running time for each of the two methods.  
+--DONE---eduwem 10) Report the running time for each of the two methods.  
 
 julie, eduwem 11) Any added features like: adding a new book, editing book information, deleting books, or more features for search will be rewarded with a bonus! 

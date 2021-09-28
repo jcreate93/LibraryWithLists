@@ -29,9 +29,6 @@ public class GraphicsFrame implements ActionListener {
 
 		JFrame frame = new JFrame();
 
-		
-		JButton ButtonZA = new JButton("Z to A");
-
 		JLabel LabelSearchBy = new JLabel("Search by:");
 		JLabel LabelSortBy = new JLabel("Sort by:");
 		JLabel LabelBookID = new JLabel("Book ID/Key:");
@@ -97,10 +94,14 @@ public class GraphicsFrame implements ActionListener {
 		btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				long a = System.currentTimeMillis(); // Time value before run
 				for (Book i : books) {
 					if (i.getBookID().equals(textFieldBookID.getText())) {
+						long b = System.currentTimeMillis();     // Time value after run
 						TextAreaPrint.setText(null);
 						TextAreaPrint.append("\n" + i.toString());
+						TextAreaPrint.append("\n" + "Actual run time value: " + (b-a) + " milliseconds");
+						System.out.println("Time difference: " + (b - a) + "milliseconds");    // Actual run time value
 						System.out.println(i);
 					}
 					if (i.getIsbn().equals(textFieldIsbn.getText())) {
@@ -116,10 +117,14 @@ public class GraphicsFrame implements ActionListener {
 		btnBinarySearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				SelectionSortArrayList.sortByBookID(books);
+				long a = System.currentTimeMillis(); // Time value before run
 				int x = SelectionSortArrayList.BinarySearch(books, textFieldBookID.getText());
+				long b = System.currentTimeMillis();     // Time value after run
 				if (x != -1) {
 				TextAreaPrint.setText(null);
 				TextAreaPrint.append("\n" + books.get(x));
+				TextAreaPrint.append("\n" + "Actual run time value: " + (b-a) + " milliseconds");
+				System.out.println("Time difference: " + (b - a) + "milliseconds");    // Actual run time value
 				//System.out.println(books.get(x);
 				}
 				else {
@@ -149,10 +154,7 @@ public class GraphicsFrame implements ActionListener {
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(textFieldIsbn, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)))
 							.addGap(751))
-						.addComponent(btnSearch)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(ButtonZA)
-							.addPreferredGap(ComponentPlacement.RELATED)))
+						.addComponent(btnSearch))
 					.addGap(194))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -201,9 +203,7 @@ public class GraphicsFrame implements ActionListener {
 								.addComponent(ButtonYear)
 								.addComponent(ButtonAuthor))
 							.addGap(14)
-							.addComponent(btnBookID)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(ButtonZA))
+							.addComponent(btnBookID))
 						.addComponent(TextAreaPrint, GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
 					.addGap(91))
 		);
